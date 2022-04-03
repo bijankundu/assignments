@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMDB Rating</title>
+  </head>
+  <body>
+    <h1>Enter a Title</h1>
+    <input type="text" name="searchTerm" id="search-input" />
+    <button onclick="searchMovie()">Search</button>
+
+    <div id="search-results"></div>
+
+    <script>
+      //Generate key from https://imdb-api.com/Identity/Account/Login
+      const API_KEY = "";
+
+      const deleteChildNodes = (parentNode) => {
+        while (parentNode?.firstChild) {
+          parentNode.removeChild(parentNode?.lastChild);
+        }
+      };
+
+      const showRating = async (imdbId = "") => {
+        const searchResultsContainer = document.getElementById("search-results");
+        const response = await fetch(`https://imdb-api.com/en/API/Title/${API_KEY}/${imdbId}/Ratings`);
+        const { imDbRating, fullTitle, image } = await response.json();
+        const newDiv = document.createElement("div");
+        const imageEle = document.createElement("img");
+        const rating = document.createElement("p");
+        const title = document.createElement("p");
+        imageEle.height = 200;
+        imageEle.width = 200;
+        imageEle.src = image;
+        title.innerText = `Title : ${fullTitle}`;
+        rating.innerText = `Rating : ${imDbRating} / 10`;
+        newDiv.append(imageEle, title, rating);
+        deleteChildNodes(searchResultsContainer);
+        searchResultsContainer.append(newDiv);
+      };
+
+      const renderSearchResults = (results = []) => {
+        const searchResultsContainer = document.getElementById("search-results");
+        deleteChildNodes(searchResultsContainer);
+        results.forEach((element) => {
+          const newDiv = document.createElement("div");
+          const image = document.createElement("img");
+          image.height = 200;
+          image.width = 200;
+          image.src = element?.image;
+          const title = document.createElement("p");
+          title.innerText = element?.title;
+          newDiv.style.cssText = "cursor:pointer;";
+          newDiv.onclick = () => showRating(element?.id);
+          newDiv.append(image, title);
+          searchResultsContainer.append(newDiv);
+        });
+      };
+
+      const searchMovie = async () => {
+        const searchInput = document.getElementById("search-input").value;
+        const response = await fetch(`https://imdb-api.com/en/API/SearchTitle/${API_KEY}/${searchInput}`);
+        const { results } = await response.json();
+        renderSearchResults(results);
+      };
+    </script>
+  </body>
+</html>
