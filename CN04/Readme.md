@@ -10,8 +10,8 @@ $ node app.js
 
 ## Available commands
 
-- `+\<item name>` where item name can be one of below mentioned available items. This would subscribe the mentioned item and append to the list.
-- `-\<item name>` where item name can be one of below mentioned available items. This would unsubscribe the mentioned item from the list.
+- `+<item name>` where item name can be one of below mentioned available items. This would subscribe the mentioned item and append to the list.
+- `-<item name>` where item name can be one of below mentioned available items. This would unsubscribe the mentioned item from the list.
 - `list` This command lists down all the items that are currently subscribed to.
 - `<color>` Any color from the below mentioned list. If any subscribed item is matched to this color then that item will give a shout-out.
 - `exit` This will stop the execution of the program.
