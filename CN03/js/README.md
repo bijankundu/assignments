@@ -4,14 +4,14 @@
 
 ```md
 $ npm i
-$ node script.js -l sample.log test
+$ node script.js -f sample.log test
 ```
 
 ### Type 2
 
 ```md
 $ npm i
-$ node script.js -l sample.log
+$ node script.js -f sample.log
 Enter a search term
 test
 ```
