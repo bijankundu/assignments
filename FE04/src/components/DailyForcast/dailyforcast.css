@@ -1,0 +1,17 @@
+.daily-forcast h1 {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.daily--forcastrow {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.zone--info {
+  display: flex;
+  justify-content: space-between;
+  margin-block: 1rem;
+}
