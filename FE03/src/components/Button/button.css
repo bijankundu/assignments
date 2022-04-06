@@ -1,0 +1,28 @@
+.btn {
+  height: 70px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #a3a3a3;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.btn:active {
+  background-color: #d4d4d4;
+}
+
+.btn--clear {
+  width: 140px;
+  font-size: 1.5rem;
+}
+
+.btn--operator {
+  background-color: crimson;
+  color: white;
+}
+
+.btn--operator:active {
+  background-color: rgb(134, 13, 37);
+}
