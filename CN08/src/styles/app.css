@@ -5,7 +5,7 @@ main {
   align-items: center;
 }
 
-button {
+button.btn--login {
   padding: 10px;
   display: flex;
   align-items: center;
@@ -16,11 +16,11 @@ button {
   cursor: pointer;
 }
 
-button:active {
+button.btn--login:active {
   background-color: darkgray;
 }
 
-button > img {
+button.btn--login > img {
   height: 30px;
   width: 30px;
 }

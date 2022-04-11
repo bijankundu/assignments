@@ -36,7 +36,7 @@ function App() {
   return (
     <main>
       {userDetails.username === "" ? (
-        <button onClick={() => handleGithubLogin()}>
+        <button className="btn--login" onClick={() => handleGithubLogin()}>
           <img src={GithubIcon} alt="" />
           Login with GitHub
         </button>
